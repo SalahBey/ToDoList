@@ -1,0 +1,39 @@
+/* général */
+body{
+    width: 100vw;
+    background-color: #EDF2FA;
+    font-family: 'Merienda', cursive;
+}
+
+/* headerStart */
+.header{
+    background-color: #2B2D42;
+    color: #EDF2FA;
+}
+
+.userName{
+    color: #EF233C;
+}
+
+/* mainStart */
+.btnAddList{
+    background-color: #2B2D42;
+    background-image: url(../img/);
+    color: #EDF2FA;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.btnAddList:active{
+    transform: translateY(2px);
+}
+
+
+/* footerStart */
+.footer{
+    background-color: #2B2D42;
+    position: absolute;
+    bottom: 0;
+    color: #EDF2FA;
+    width: 100%;
+}
