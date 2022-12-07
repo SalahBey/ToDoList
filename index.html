@@ -30,12 +30,6 @@
 
         <!-- Début du main -->
         <main>
-            <div class="row main m-5 ">
-                <div class="col buttonAddList text-center">
-                    <input name="addList" id="addList" class="btnAddList rounded" type="button" value="+"> Ajouter une
-                    liste
-                </div>
-            </div>
             <div class="row d-flex flex-wrap justify-content-center">
                 <!-- début de la carte -->
                 <div class="col-5 m-3 card">
@@ -50,14 +44,18 @@
                         <div class="col elementList">
                             <div class="row elementItem align-items-center">
                                 <p class="col-6 card-text m-0">Element</p>
-                                <input name="changeElementText" id="changeElementText" class="col-1 offset-4 btnChangeElementText rounded"
-                                    type="image" src="./public/assets/img/pencilelement.png">
-                                <input name="deleteElementText" id="deleteElementText" class="col-1 btnDeleteElementText rounded"
-                                    type="image" src="./public/assets/img/trashelement.png">
+                                <input name="changeElementText" id="changeElementText"
+                                    class="col-1 offset-4 btnChangeElementText rounded" type="image"
+                                    src="./public/assets/img/pencilelement.png">
+                                <input name="deleteElementText" id="deleteElementText"
+                                    class="col-1 btnDeleteElementText rounded" type="image"
+                                    src="./public/assets/img/trashelement.png">
                             </div>
-                            
-                        <input name="addElement" id="addElement" class="col btnAddElement rounded mt-2" type="button"
-                            value="+"> Ajouter un élément
+                        </div>
+                        <div class="row flex-row">
+                            <input name="addElement" id="addElement" class="col-1 btnAddElement rounded" type="button"
+                                value="+">
+                            <p class="col addElementText">Ajouter un élément</p>
                         </div>
                     </div>
                 </div>
@@ -75,14 +73,18 @@
                         <div class="col elementList">
                             <div class="row elementItem align-items-center">
                                 <p class="col-6 card-text m-0">Element</p>
-                                <input name="changeElementText" id="changeElementText" class="col-1 offset-4 btnChangeElementText rounded"
-                                    type="image" src="./public/assets/img/pencilelement.png">
-                                <input name="deleteElementText" id="deleteElementText" class="col-1 btnDeleteElementText rounded"
-                                    type="image" src="./public/assets/img/trashelement.png">
+                                <input name="changeElementText" id="changeElementText"
+                                    class="col-1 offset-4 btnChangeElementText rounded" type="image"
+                                    src="./public/assets/img/pencilelement.png">
+                                <input name="deleteElementText" id="deleteElementText"
+                                    class="col-1 btnDeleteElementText rounded" type="image"
+                                    src="./public/assets/img/trashelement.png">
                             </div>
-                            
-                        <input name="addElement" id="addElement" class="col btnAddElement rounded mt-2" type="button"
-                            value="+"> Ajouter un élément
+                        </div>
+                        <div class="row flex-row">
+                            <input name="addElement" id="addElement" class="col-1 btnAddElement rounded" type="button"
+                                value="+">
+                            <p class="col addElementText">Ajouter un élément</p>
                         </div>
                     </div>
                 </div>
@@ -100,18 +102,39 @@
                         <div class="col elementList">
                             <div class="row elementItem align-items-center">
                                 <p class="col-6 card-text m-0">Element</p>
-                                <input name="changeElementText" id="changeElementText" class="col-1 offset-4 btnChangeElementText rounded"
-                                    type="image" src="./public/assets/img/pencilelement.png">
-                                <input name="deleteElementText" id="deleteElementText" class="col-1 btnDeleteElementText rounded"
-                                    type="image" src="./public/assets/img/trashelement.png">
+                                <input name="changeElementText" id="changeElementText"
+                                    class="col-1 offset-4 btnChangeElementText rounded" type="image"
+                                    src="./public/assets/img/pencilelement.png">
+                                <input name="deleteElementText" id="deleteElementText"
+                                    class="col-1 btnDeleteElementText rounded" type="image"
+                                    src="./public/assets/img/trashelement.png">
                             </div>
-                            
-                        <input name="addElement" id="addElement" class="col btnAddElement rounded mt-2" type="button"
-                            value="+"> Ajouter un élément
+                        </div>
+                        <div class="row flex-row">
+                            <input name="addElement" id="addElement" class="col-1 btnAddElement rounded" type="button"
+                                value="+">
+                            <p class="col addElementText">Ajouter un élément</p>
                         </div>
                     </div>
                 </div>
                 <!-- Fin de la carte -->
+                <!-- bouton ajouter liste -->
+                <div class="col-5 m-3 flex-row buttonAddList text-center">
+                    <input name="addList" id="addList" class="btnAddList rounded" type="button" value=" + "> Ajouter une
+                    liste
+                </div>
+                <!-- fin bouton ajouter liste -->
+                <!-- bouton valider liste -->
+                <div class="col-5 m-3 flex-row buttonValidateList text-center">
+                    <input name="ValidateList" id="ValidateList" class="btnValidateList rounded" type="button" value="Valider"> 
+                </div>
+                <!-- fin bouton ajouter liste -->
+
+                <!-- bouton valider élèment -->
+                <div class="col-5 m-3 flex-row buttonValidateElement text-center">
+                    <input name="ValidateElement" id="ValidateElement" class="btnValidateElement rounded" type="button" value="Valider"> 
+                </div>
+                <!-- fin bouton ajouter élèment -->
             </div>
         </main>
         <!-- Fin du main -->

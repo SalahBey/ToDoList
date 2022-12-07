@@ -18,6 +18,7 @@ body{
 /* mainStart */
 
 /* boutons */
+/* ajouter une liste */
 .btnAddList{
     background-color: #2B2D42;
     background-image: url(../img/);
@@ -30,6 +31,22 @@ body{
     transform: translateY(2px);
 }
 
+/* valider une liste */
+
+.btnValidateList{
+    background-color: #2B2D42;
+    background-image: url(../img/);
+    color: #EDF2FA;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.btnValidateList:active{
+    transform: translateY(2px);
+}
+
+/* ajouter un élément */
+
 .btnAddElement{
     background-color: #2B2D42;
     background-image: url(../img/);
@@ -41,6 +58,21 @@ body{
 .btnAddElement:active{
     transform: translateY(2px);
 }
+
+/* valider un élément */
+
+.btnValidateElement{
+    background-color: #2B2D42;
+    background-image: url(../img/);
+    color: #EDF2FA;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.btnValidateElement:active{
+    transform: translateY(2px);
+}
+
 /* card */
 
 .card-header{
