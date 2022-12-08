@@ -1,6 +1,5 @@
 /* général */
 body{
-    width: 100vw;
     background-color: #EDF2FA;
     font-family: 'Merienda', cursive;
 }
@@ -91,8 +90,5 @@ body{
 /* footerStart */
 .footer{
     background-color: #2B2D42;
-    position: absolute;
-    bottom: 0;
     color: #EDF2FA;
-    width: 100%;
 }
