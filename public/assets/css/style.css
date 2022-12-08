@@ -30,6 +30,22 @@ body{
     transform: translateY(2px);
 }
 
+/* supprimer une liste */
+.btnDeleteList:active{
+    transform: translateY(2px);
+}
+
+/* modifier une liste */
+.btnUpdateTitle:active{
+    transform: translateY(2px);
+}
+
+/* archiver une liste */
+.btnArchiveTitle:active{
+    transform: translateY(2px);
+}
+
+
 /* ajouter un élément */
 
 .btnAddElement{
@@ -43,6 +59,18 @@ body{
 .btnAddElement:active{
     transform: translateY(2px);
 }
+
+/* supprimer un élément */
+.btnDeleteElementText:active{
+    transform: translateY(2px);
+
+}
+
+/* modifier un élément */
+.btnUpdateElementText:active{
+    transform: translateY(2px);
+}
+
 
 /* input text */
 
