@@ -31,6 +31,28 @@ function createList (){
             </div>
         </div>
     </div>`
+
+        let btnAddElement = document.querySelector('.btnAddElement')
+        let elementList = document.querySelector('.elementList')
+
+        function createElement (){
+        elementList.innerHTML +=
+        `<div class="row elementItem align-items-center">
+            <input type="text" id="listElement" class="col-6 card-text m-0 listElement" name="listElement" required placeholder="Ajouter élément">
+            <input name="changeElementText" id="changeElementText"
+                class="col-1 offset-4 btnChangeElementText rounded" type="image"
+                src="./public/assets/img/pencilelement.png">
+            <input name="deleteElementText" id="deleteElementText"
+                class="col-1 btnDeleteElementText rounded" type="image"
+                src="./public/assets/img/trashelement.png">
+        </div>`
+    };
+
+    btnAddElement.addEventListener('click', createElement);
+
 };
 
 btnAddList.addEventListener('click',createList);
+
+
+

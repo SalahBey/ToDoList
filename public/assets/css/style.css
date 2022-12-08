@@ -50,6 +50,7 @@ input[type="text"]
 {
     background: transparent;
     border: none;
+
 }
 
 /* card */
@@ -60,6 +61,11 @@ input[type="text"]
 
 .listTitle{
     font-size: 1.7rem;
+    color: #EDF2FA;
+}
+
+.listElement{
+    font-size: 1.3rem;
     color: #EDF2FA;
 }
 

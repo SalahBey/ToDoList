@@ -68,7 +68,8 @@
                     <div class="row flex-column card-body rounded-bottom">
                         <div class="col elementList">
                             <div class="row elementItem align-items-center">
-                                <p class="col-6 card-text m-0">Element</p>
+                                <input type="text" id="listElement" class="col-6 card-text m-0 listElement" 
+                                name="listElement" required placeholder="Ajouter élément">
                                 <input name="changeElementText" id="changeElementText"
                                     class="col-1 offset-4 btnChangeElementText rounded" type="image"
                                     src="./public/assets/img/pencilelement.png">
