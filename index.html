@@ -9,16 +9,42 @@
     <title>ToDoList</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <div id="container" class="row">
-            <div id="divInput" class="col-12 d-flex flex-column align-items-center justify-content-center">
-                <input class="my-4 w-50 btn btn-danger" type="button" name="createList" id="createList" value="Ajouter une liste">
-                <input hidden class="my-4 w-50 btn btn-danger" type="button" name="validList" id="validList" value="Valider"> 
+    <!-- Début du header -->
+    <header>
+        <div class="header d-flex flex-column text-center pt-3">
+            <div class="memoTitle">
+                <h1>Mémo</h1>
+                <h1 class="userName"></h1>
             </div>
         </div>
-       
-    </div>
-    
+    </header>
+    <!-- Fin du header -->
+    <main>
+        <div class="container-fluid d-flex flex-column">
+            <div id="container" class="row d-flex flex-wrap justify-content-center listContainer">
+                <!-- les listes apparaîtront ici -->
+                 <!-- bouton ajouter liste -->
+                <div id="divInput" class="row-5 m-3 flex-row buttonAddList text-center">
+                    <div>
+                        <input name="validList" id="validList" class="btnAddList rounded" type="button" value=" + "> 
+                        <span>Ajouter une liste</span>
+                    </div>
+                    
+                    <!-- <input class="my-4 w-50 btn btn-danger" type="button"  value="Ajouter une liste"> -->
+                    <!-- <input class="my-4 w-50 btn btn-danger" type="button" name="validList" id="validList" value="Ajouter une liste"> -->
+                </div>
+                <!-- fin bouton ajouter liste -->
+            </div>
+           
+        </div>
+    </main>
+    <footer>
+        <div class="row footer text-center pt-3">
+            <div class="col">
+                <p>© 2022 La Manu</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="./public/assets/js/script.js"></script>
