@@ -7,8 +7,10 @@ function createList() {
         ` <div class="col-5 m-3 card">
         <div class="row card-header align-items-center">
             <input type="text" id="listTitle" class="col-6 listTitle " name="listTitle" required placeholder="Ajouter titre">
-            <input name="changeTitle" id="changeTitle" class="col-1 offset-4 btnUpdateTitle rounded"
+            <input name="updateTitle" id="updateTitle" class="col-1 offset-3 btnUpdateTitle rounded"
                 type="image" src="./public/assets/img/pencil.png">
+                <input name="archiveTitle" id="archiveTitle" class="col-1 btnArchiveTitle rounded"
+                type="image" src="./public/assets/img/archives.png">
             <input name="deleteList" id="deleteList" class="col-1 btnDeleteList rounded" type="image"
                 src="./public/assets/img/trash.png">
         </div>
@@ -38,14 +40,15 @@ function createList() {
     function createElement() {
         elementList.innerHTML +=
             `<div class="row elementItem align-items-center">
-            <input type="text" id="listElement" class="col-6 card-text m-0 listElement" name="listElement" required placeholder="Ajouter élément">
-            <input name="updateElementText" id="updateElementText"
-                class="col-1 offset-4 btnUpdateElementText rounded" type="image"
-                src="./public/assets/img/pencilelement.png">
-            <input name="deleteElementText" id="deleteElementText"
-                class="col-1 btnDeleteElementText rounded" type="image"
-                src="./public/assets/img/trashelement.png">
-        </div>`
+                <input type="text" id="listElement" class="col-6 card-text m-0 listElement" 
+                    name="listElement" required placeholder="Ajouter élément">
+                <input name="updateElementText" id="updateElementText"
+                    class="col-1 offset-4 btnUpdateElementText rounded" type="image"
+                    src="./public/assets/img/pencilelement.png">
+                <input name="deleteElementText" id="deleteElementText"
+                    class="col-1 btnDeleteElementText rounded" type="image"
+                    src="./public/assets/img/trashelement.png">
+            </div>`
 
     };
 
