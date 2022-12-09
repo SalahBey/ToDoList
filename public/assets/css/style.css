@@ -1,0 +1,85 @@
+/* général */
+body{
+    background-color: #EDF2FA;
+    font-family: 'Merienda', cursive;
+}
+
+/* headerStart */
+.header{
+    background-color: #2B2D42;
+    color: #EDF2FA;
+}
+
+.userName{
+    color: #EF233C;
+}
+
+/* mainStart */
+
+/* boutons */
+/* ajouter une liste */
+.btnAddList{
+    background-color: #2B2D42;
+    background-image: url(../img/);
+    color: #EDF2FA;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.btnAddList:active{
+    transform: translateY(2px);
+}
+
+/* ajouter un élément */
+
+.btnAddElement{
+    background-color: #2B2D42;
+    background-image: url(../img/);
+    color: #EDF2FA;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.btnAddElement:active{
+    transform: translateY(2px);
+}
+
+/* input text */
+
+input[type="text"]
+{
+    background: transparent;
+    border: none;
+
+}
+
+/* card */
+
+.card-header{
+    background-color: #2B2D42;
+}
+
+.listTitle{
+    font-size: 1.7rem;
+    color: #EDF2FA;
+}
+
+.listElement{
+    font-size: 1.3rem;
+    color: #EDF2FA;
+}
+
+.card-body{
+ background-color: #8d99ae;
+ color: #EDF2FA;
+}
+
+/* footerStart */
+.footer{
+    background-color: #2B2D42;
+    color: #EDF2FA;
+}
+
+.archived {
+    opacity: 0.5;
+}
