@@ -1,72 +1,191 @@
-let btnAddList = document.querySelector('.btnAddList')
-let listContainer = document.querySelector('.listContainer')
-
-
-function createList() {
-    listContainer.innerHTML +=
-        ` <div class="col-5 m-3 card">
-        <div class="row card-header align-items-center">
-            <input type="text" id="listTitle" class="col-6 listTitle " name="listTitle" required placeholder="Ajouter titre">
-            <input name="updateTitle" id="updateTitle" class="col-1 offset-3 btnUpdateTitle rounded"
-                type="image" src="./public/assets/img/pencil.png">
-                <input name="archiveTitle" id="archiveTitle" class="col-1 btnArchiveTitle rounded"
-                type="image" src="./public/assets/img/archives.png">
-            <input name="deleteList" id="deleteList" class="col-1 btnDeleteList rounded" type="image"
-                src="./public/assets/img/trash.png">
-        </div>
-        <div class="row flex-column card-body rounded-bottom">
-            <div class="col elementList">
-                <div class="row elementItem align-items-center">
-                    <input type="text" id="listElement" class="col-6 card-text m-0 listElement" name="listElement" required placeholder="Ajouter élément">
-                    <input name="changeElementText" id="changeElementText"
-                        class="col-1 offset-4 btnChangeElementText rounded" type="image"
-                        src="./public/assets/img/pencilelement.png">
-                    <input name="deleteElementText" id="deleteElementText"
-                        class="col-1 btnDeleteElementText rounded" type="image"
-                        src="./public/assets/img/trashelement.png">
+let createBtn = document.querySelector('#createList');
+let validListBtn = document.querySelector('#validList');
+let divContainer = document.querySelector('#container');
+let divInput = document.querySelector('#divInput')
+let lists = [];
+let subLists = [];
+if(localStorage.getItem('lists')){
+    lists = JSON.parse(localStorage.getItem('lists'))
+} 
+console.log(lists[1]);
+function displayList() {
+    lists.forEach((listName, index) => {
+        let nbList = index+1;
+        let div = document.createElement('div');
+        div.id = 'divList'+nbList;
+        div.className = 'col-12 col-lg-6';
+        div.innerHTML = 
+        ` 
+        <div id="list${nbList}" class="my-4 card">
+            <div class="d-flex justify-content-between card-header align-items-center">
+                <input type="text" id="nameList${nbList}" class="listTitle border-0" name="listTitle" disabled readonly value="${listName.name}">
+                <div class="d-flex justify-content-around">
+                    <input id="updateList${nbList}" name="updateList${nbList}" class="mx-lg-3 btnChangeTitle rounded"
+                        type="image" src="./public/assets/img/pencil.png">
+                    <input id="archiveList${nbList}" name="archiveList${nbList}" class="mx-lg-3 btnArchiveTitle rounded"
+                        type="image" src="./public/assets/img/archives.png">
+                    <input id="deleteList${nbList}" name="deleteList${nbList}" class="mx-lg-3 btnDel btnDeleteList rounded" type="image"
+                        src="./public/assets/img/trash.png">
                 </div>
             </div>
-            <div class="row flex-row mt-2">
-                <input name="addElement" id="addElement" class="col-1 btnAddElement rounded" type="button"
-                    value="+">
-                <p class="col addElementText">Ajouter un élément</p>
+            <div class="d-flex flex-column card-body rounded-bottom">
+                <div class="elementList">
+                    <div class="d-flex justify-content-between elementItem align-items-center">
+                        <input type="text" id="listElement${nbList}" class="subListTitle card-text m-0 listElement" name="listElement${nbList}" disabled readonly value="${listName.subList}">
+                        <div class="d-flex justify-content-around">
+                            <input name="changeElementText${nbList}" id="changeElementText${nbList}"
+                                class="btnChangeElementText mx-lg-2 rounded" type="image"
+                                src="./public/assets/img/pencilelement.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+        divContainer.appendChild(div);
+        
+    });
+}
+displayList();
+
+function updateList(){
+    lists.forEach((list,index)=> {
+        let btnListUpdate = document.querySelectorAll('.btnChangeTitle');
+
+        btnListUpdate.forEach((btnUpdate, index) => {
+            btnUpdate.addEventListener('click', () => {
+                let cpt = index+1;
+                let inputTitle = document.getElementById(`nameList${cpt}`);
+                inputTitle.removeAttribute('value');
+                inputTitle.setAttribute('placeholder','Entrez un nouveau titre')
+                let inputElement = document.getElementById(`listElement${cpt}`);
+                let valueElement = inputElement.value
+                inputTitle.removeAttribute('readonly');
+                inputTitle.removeAttribute('disabled');
+                
+                inputTitle.addEventListener('focusout', () => {
+                    let valueTitle = inputTitle.value;
+                    inputTitle.setAttribute('value', `${valueTitle}`);
+                    inputTitle.removeAttribute('placeholder');
+                    inputTitle.setAttribute('readonly', '');
+                    inputTitle.setAttribute('disabled', '');
+                        var lsValue = {
+                                id: cpt,
+                                name: valueTitle,
+                                subList : valueElement
+                            }
+                        lists[index] = lsValue;  
+                        localStorage.setItem('lists', JSON.stringify(lists)); 
+                    });
+                });
+            });    
+        })
+        let btnElementUpdate = document.querySelectorAll('.btnChangeElementText');
+        btnElementUpdate.forEach((btnUpdate, index) => {
+            btnUpdate.addEventListener('click', () => {
+                let cpt = index+1;
+                let inputTitle = document.getElementById(`nameList${cpt}`);
+                let inputElement = document.getElementById(`listElement${cpt}`);
+                inputElement.removeAttribute('value');
+                inputElement.setAttribute('placeholder','Entrez une nouvelle description')
+                inputElement.removeAttribute('readonly');
+                inputElement.removeAttribute('disabled');
+                inputElement.addEventListener('focusout', () => {
+                    let valueTitle = inputTitle.value;
+                    let valueDesc = inputElement.value;
+                    inputElement.setAttribute('value', `${valueDesc}`)
+                    inputElement.removeAttribute('placeholder');
+                    inputElement.setAttribute('readonly', '');
+                    inputElement.setAttribute('disabled', '');
+                    var lsValue = {
+                            id: cpt,
+                            name: valueTitle,
+                            subList : valueDesc
+                        }
+                        lists[index] = lsValue;   
+                    localStorage.setItem('lists', JSON.stringify(lists));
+                });    
+            })
+        })
+}
+updateList();
+
+function deleteList() {
+    let btnListDelete = document.querySelectorAll('.btnDel');
+    btnListDelete.forEach((btnDel, index) => {
+        btnDel.addEventListener('click', () => {
+            let cpt = index+1;
+            let divDelete = document.getElementById('divList'+cpt);
+            if(divDelete){
+                divDelete.remove();
+            }
+            lists.splice(index,1);  
+            localStorage.setItem('lists', JSON.stringify(lists)); 
+        });    
+    })
+}
+deleteList();
+
+function validList() {
+    let list = document.querySelectorAll('.listTitle');
+    let nbList = parseInt(list.length) + 1;
+    let div = document.createElement('div');
+    div.id = 'divList'+nbList;
+    div.className = 'col-12 col-lg-6';
+    div.innerHTML = 
+    ` 
+    <div id="list${nbList}" class="my-4 mx-2 card">
+        <div class="d-flex card-header justify-content-between align-items-center">
+            <input type="text" id="nameList${nbList}" class="listTitle" name="listTitle${nbList}" placeholder="Ajouter un titre">
+            <div class="d-flex justify-content-around">
+                <input id="updateList${nbList}" name="updateList${nbList}" class="mx-3 btnChangeTitle rounded"
+                    type="image" src="./public/assets/img/pencil.png">
+                <input id="archiveList${nbList}" name="archiveList${nbList}" class="mx-3 btnArchiveTitle rounded"
+                    type="image" src="./public/assets/img/archives.png">
+                <input id="deleteList${nbList}" name="deleteList${nbList}" class="mx-3 btnDel btnDeleteList rounded" type="image"
+                    src="./public/assets/img/trash.png">
             </div>
         </div>
-    </div>`
-
-    let btnAddElement = document.querySelector('.btnAddElement')
-    let elementList = document.querySelector('.elementList')
-
-    function createElement() {
-        elementList.innerHTML +=
-            `<div class="row elementItem align-items-center">
-                <input type="text" id="listElement" class="col-6 card-text m-0 listElement" 
-                    name="listElement" required placeholder="Ajouter élément">
-                <input name="updateElementText" id="updateElementText"
-                    class="col-1 offset-4 btnUpdateElementText rounded" type="image"
-                    src="./public/assets/img/pencilelement.png">
-                <input name="deleteElementText" id="deleteElementText"
-                    class="col-1 btnDeleteElementText rounded" type="image"
-                    src="./public/assets/img/trashelement.png">
-            </div>`
-
-    };
-
-    btnAddElement.addEventListener('click', createElement);
+        <div class="d-flex flex-column card-body rounded-bottom">
+            <div class="elementList">
+                <div class="d-flex justify-content-between elementItem align-items-center">
+                    <input type="text" id="listElement${nbList}" class="subListTitle card-text m-0 listElement" name="listElement${nbList}" placeholder="Ajouter une description">
+                    <div>
+                        <input name="changeElementText${nbList}" id="changeElementText${nbList}"
+                            class="mx-lg-2 btnChangeElementText rounded" type="image"
+                            src="./public/assets/img/pencilelement.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+    divContainer.appendChild(div);
+    let inputTitle = document.getElementById(`nameList${nbList}`);
+    let inputDesc = document.getElementById(`listElement${nbList}`);
+    inputTitle.addEventListener('focusout', () => {
+        let valueTitle = inputTitle.value;
+        inputTitle.setAttribute('value', `${valueTitle}`);
+        inputTitle.removeAttribute('placeholder');
+        inputTitle.setAttribute('readonly', '');
+        inputTitle.setAttribute('disabled', '');
+        inputDesc.addEventListener('focusout', () => {
+            let valueDesc = inputDesc.value;
+            console.log(valueDesc);
+            inputDesc.setAttribute('value', `${valueDesc}`)
+            inputDesc.removeAttribute('placeholder');
+            inputDesc.setAttribute('readonly', '');
+            inputDesc.setAttribute('disabled', '');
+            var lsValue = {
+                    id: nbList,
+                    name: valueTitle,
+                    subList : valueDesc
+                }
+            lists.push(lsValue);  
+            localStorage.setItem('lists', JSON.stringify(lists)); 
+        });
+    });
     
-    
-    let btnDeleteElementText = document.querySelector('.btnDeleteElementText')
-    let elementItem = document.querySelector('.elementItem')
+ 
+    deleteList();
+}
 
-    function removeElement() {
-        elementItem.remove();
-    };
-
-    btnDeleteElementText.addEventListener('click', removeElement);
-
-};
-
-btnAddList.addEventListener('click', createList);
-
-
-
+validListBtn.addEventListener('click', validList);
