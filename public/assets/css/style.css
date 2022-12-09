@@ -79,3 +79,7 @@ input[type="text"]
     background-color: #2B2D42;
     color: #EDF2FA;
 }
+
+.archived {
+    opacity: 0.5;
+}
